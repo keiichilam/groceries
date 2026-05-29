@@ -12,7 +12,7 @@ import { stores, items, inventory } from './tntMockData';
 import { runChain } from '../scraper/runChain';
 import { persistScraperOutput } from '../scraper/persist';
 
-const LIVE_CHAINS = ['walmart', 'safeway', 'saveon', 'tnt'];
+const LIVE_CHAINS = ['walmart', 'safeway', 'saveon', 'tnt', 'pricesmart'];
 
 const args = process.argv.slice(2);
 const chainArg =

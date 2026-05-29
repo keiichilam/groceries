@@ -2,7 +2,7 @@ import cron from 'node-cron';
 import { runChain } from './runChain';
 import { persistScraperOutput } from './persist';
 
-const CHAINS = ['walmart', 'safeway', 'saveon', 'tnt'];
+const CHAINS = ['walmart', 'safeway', 'saveon', 'tnt', 'pricesmart'];
 const CRON_SCHEDULE = process.env.SCRAPE_CRON ?? '0 3 * * *'; // 03:00 daily
 
 async function scrapeAll(): Promise<void> {

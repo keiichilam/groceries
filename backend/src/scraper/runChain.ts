@@ -5,10 +5,11 @@ import type { ScraperOutput } from './types';
 const SCRAPERS_DIR = path.join(__dirname, '../../scrapers');
 
 const CHAIN_SCRIPTS: Record<string, string> = {
-  walmart: 'walmart.py',
-  safeway: 'safeway.py',
-  saveon:  'saveon.py',
-  tnt:     'tnt.py',
+  walmart:    'walmart.py',
+  safeway:    'safeway.py',
+  saveon:     'saveon.py',
+  tnt:        'tnt.py',
+  pricesmart: 'pricesmart.py',
 };
 
 export async function runChain(chain: string): Promise<ScraperOutput> {
