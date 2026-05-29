@@ -9,14 +9,13 @@
 - [x] Implement `InMemoryStoreRepository` for unit tests
 - [x] Seed SQLite with T&T mock dataset (4 stores, 35 items, 51 inventory rows) via `npm run scrape -- --chain tnt --seed-mock`
 
-## Phase 2: Web Scraper Implementation
+## Phase 2: Web Scraper Implementation ✅
 
-- [ ] Install Python 3.10+, `camoufox` (`pip install camoufox`), and `playwright` npm package; document setup in `README.md`
-- [ ] Implement `BrowserFactory` module: spawns Camoufox via CDP; falls back to `playwright-extra` + stealth on Firefox
-- [ ] Implement store-locator scraper for Walmart, Safeway, Save-On-Foods, T&T → populate `stores` table with Metro Vancouver branches and coordinates
-- [ ] Implement product/inventory scraper for each chain's Fruits & Vegetables category → persist to `items` and `inventory` tables
-- [ ] Wire up `node-cron` for daily scrapes; expose `npm run scrape` CLI with `--chain` and `--seed-mock` flags
-- [ ] Spot-check ≥3 items per chain against live sites for price/stock accuracy
+- [x] Install Python 3.10+, `camoufox` (`pip install "camoufox[geoip]"` + `python3 -m camoufox fetch`); documented in `README.md`
+- [x] Implement scraper architecture: Python scripts per chain output JSON to stdout; Node.js `runChain.ts` spawns them and `persist.ts` upserts to SQLite
+- [x] Implement store-locator + product/inventory scraper for Walmart, Safeway, Save-On-Foods, T&T (`backend/scrapers/*.py`)
+- [x] Wire up `node-cron` daily scrapes (`schedule.ts`, default 03:00); `npm run scrape` CLI with `--chain` and `--seed-mock` flags
+- [ ] Spot-check ≥3 items per chain against live sites for price/stock accuracy (requires live browser run)
 
 ## Phase 3: Core Algorithm Development (Backend)
 
